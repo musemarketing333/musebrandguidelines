@@ -3,169 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hedge | Spend with crypto</title>
+    <title>Muse by Anahita | Brand Guidelines</title>
+    
+    <!-- Google Fonts: Bodoni Moda for Elegance, DM Sans for Modernity -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Animate on Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; }
-        .bg-gradient { background: radial-gradient(circle at 50% -20%, #0044ff33 0%, transparent 60%); }
-        .card-shadow { box-shadow: 0 0 50px rgba(0, 102, 255, 0.2); }
-        .nav-blur { backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .blue-btn { background-color: #0066FF; transition: all 0.3s ease; }
-        .blue-btn:hover { background-color: #0052cc; transform: translateY(-2px); }
-        .feature-card { background: #0A0A0A; border: 1px solid #1A1A1A; border-radius: 24px; transition: border 0.3s; }
-        .feature-card:hover { border-color: #0066FF; }
+        :root {
+            --background: #f6f3eb;
+            --foreground: #2a1010;
+            --primary: #810b38; /* Crimson Rose */
+            --burgundy: #541a1a;
+            --sage: #869b7e;
+            --ivory: #f6f3eb;
+            --parchment: #f1e2d1;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            scroll-behavior: smooth;
+        }
+
+        .font-display { font-family: 'Bodoni Moda', serif; }
+        
+        /* Custom nice scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--background); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); }
+
+        .section-divider {
+            height: 1px;
+            background-color: rgba(42, 16, 16, 0.1);
+            margin: 0 4rem;
+        }
+
+        .glass-nav {
+            background-color: rgba(246, 243, 235, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(42, 16, 16, 0.05);
+        }
+
+        .color-card:hover .hex-code { opacity: 1; }
+        .hex-code { opacity: 0; transition: opacity 0.3s; }
     </style>
 </head>
-<body class="bg-black selection:bg-blue-600">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 nav-blur">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-[#0066FF] rounded flex items-center justify-center font-bold italic text-white">H</div>
-                <span class="text-xl font-bold tracking-tighter uppercase">Hedge</span>
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+            <span class="text-[10px] tracking-[0.3em] uppercase font-bold">Muse by Anahita</span>
+            <div class="hidden md:flex gap-8">
+                <a href="#story" class="text-[10px] tracking-widest uppercase hover:text-red-800 transition">Story</a>
+                <a href="#logo" class="text-[10px] tracking-widest uppercase hover:text-red-800 transition">Logo</a>
+                <a href="#colors" class="text-[10px] tracking-widest uppercase hover:text-red-800 transition">Colors</a>
+                <a href="#typography" class="text-[10px] tracking-widest uppercase hover:text-red-800 transition">Type</a>
             </div>
-            <div class="hidden md:flex gap-8 text-[13px] font-medium text-zinc-400 uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition">Product</a>
-                <a href="#" class="hover:text-white transition">Security</a>
-                <a href="#" class="hover:text-white transition">Pricing</a>
-            </div>
-            <button class="blue-btn text-white px-6 py-2 rounded-lg text-sm font-bold uppercase tracking-widest">
-                Get the app
-            </button>
+            <button class="text-[10px] border border-[#2a1010] px-4 py-2 uppercase tracking-widest hover:bg-[#2a1010] hover:text-white transition">Contact</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-44 pb-32 px-6 overflow-hidden bg-gradient">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-6xl md:text-[80px] font-extrabold leading-[1.05] mb-8 tracking-tighter">
-                    Spend with crypto, <br>
-                    <span class="text-zinc-500 italic font-normal">earn with fiat.</span>
-                </h1>
-                <p class="text-zinc-400 text-lg md:text-xl mb-12 max-w-lg leading-relaxed">
-                    The multi-chain crypto card that lets you pay at any terminal worldwide with instant conversion.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Email address" class="bg-[#111] border border-zinc-800 rounded-xl px-6 py-4 w-full sm:w-80 outline-none focus:border-blue-600 transition">
-                    <button class="blue-btn px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm">
-                        Join Waitlist
-                    </button>
-                </div>
+    <section class="min-h-screen flex flex-col items-center justify-center text-center bg-[#541a1a] text-[#f6f3eb] relative overflow-hidden">
+        <!-- Decorative subtle pattern overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 0.5px, transparent 0.5px); background-size: 30px 30px;"></div>
+        
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div class="mb-8 opacity-90">
+                <!-- SVG Logo Placeholder -->
+                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50" stroke="white" stroke-width="2"/>
+                    <text x="50" y="58" fill="white" font-family="Bodoni Moda" font-size="30" text-anchor="middle">M</text>
+                </svg>
             </div>
+            <h1 class="font-display text-5xl md:text-8xl mb-4 italic">The Muse</h1>
+            <p class="text-[11px] tracking-[0.4em] uppercase opacity-60">Identity System Guidelines</p>
+        </div>
+        
+        <div class="absolute bottom-10 animate-bounce opacity-40">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
 
-            <!-- The Card Visual -->
-            <div class="relative flex items-center justify-center lg:justify-end">
-                <div class="w-full max-w-[480px] aspect-[1.58/1] relative">
-                    <!-- The specific Hedge Card design -->
-                    <div class="w-full h-full bg-gradient-to-br from-[#1A1A1A] to-[#000] rounded-[28px] p-10 border border-zinc-800 card-shadow transform rotate-[-5deg]">
-                        <div class="flex justify-between items-start mb-16">
-                            <div class="w-14 h-11 bg-[#222] rounded-lg border border-zinc-700 flex items-center justify-center">
-                                <div class="w-10 h-7 bg-[#0066FF]/20 rounded-sm border border-[#0066FF]/30"></div>
-                            </div>
-                            <div class="flex flex-col items-end uppercase">
-                                <span class="text-xs font-bold text-zinc-500">Platinum</span>
-                                <span class="text-lg font-black tracking-tighter">Hedge</span>
-                            </div>
-                        </div>
-                        <div class="text-2xl font-mono tracking-[0.2em] mb-10 text-zinc-300">**** **** **** 8821</div>
-                        <div class="flex justify-between items-end uppercase">
-                            <div class="text-[10px] text-zinc-600 font-bold tracking-[0.2em]">
-                                Alexander Hedge
-                            </div>
-                            <div class="w-12 h-8 bg-zinc-800/50 rounded flex items-center justify-center italic font-black text-xs">VISA</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- 01 Brand Story -->
+    <section id="story" class="py-32 px-8 max-w-7xl mx-auto">
+        <div class="flex items-center gap-6 mb-20" data-aos="fade-right">
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">01</span>
+            <div class="h-px bg-current flex-1 opacity-10"></div>
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">Brand Story</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-20">
+            <div data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-6xl leading-tight mb-8">The word <span class="italic text-[#810b38]">muse</span> does not belong to the artist alone.</h2>
+            </div>
+            <div class="space-y-6 text-lg leading-relaxed opacity-70" data-aos="fade-up" data-aos-delay="200">
+                <p>Muse by Anahita was founded on a simple conviction: that the act of being seen — truly seen — is transformative. Each client who sits in the chair is not a canvas to be worked on, but a collaborator.</p>
+                <p>The studio serves brides, editorial clients, and everyday visitors seeking moments of extraordinary care. The approach is the same in all cases — unhurried, attentive, and deeply personal.</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats / Trust -->
-    <section class="border-y border-zinc-900 bg-black py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-12 opacity-40 grayscale">
-            <span class="text-2xl font-bold uppercase italic tracking-tighter">Binance</span>
-            <span class="text-2xl font-bold uppercase italic tracking-tighter">Ethereum</span>
-            <span class="text-2xl font-bold uppercase italic tracking-tighter">Polygon</span>
-            <span class="text-2xl font-bold uppercase italic tracking-tighter">Solana</span>
-            <span class="text-2xl font-bold uppercase italic tracking-tighter">Arbitrum</span>
+    <div class="section-divider"></div>
+
+    <!-- 02 Logo System -->
+    <section id="logo" class="py-32 px-8 max-w-7xl mx-auto">
+        <div class="flex items-center gap-6 mb-20" data-aos="fade-right">
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">02</span>
+            <div class="h-px bg-current flex-1 opacity-10"></div>
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">Logo System</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-12 aspect-square flex flex-col items-center justify-center border border-black/5" data-aos="zoom-in">
+                <h3 class="font-display text-3xl mb-2">MUSE</h3>
+                <p class="text-[8px] tracking-[0.3em] uppercase opacity-50">By Anahita</p>
+            </div>
+            <div class="bg-[#f1e2d1] p-12 aspect-square flex flex-col items-center justify-center border border-black/5" data-aos="zoom-in" data-aos-delay="100">
+                <h3 class="font-display text-3xl mb-2">MUSE</h3>
+                <p class="text-[8px] tracking-[0.3em] uppercase opacity-50">By Anahita</p>
+            </div>
+            <div class="bg-[#541a1a] text-white p-12 aspect-square flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <h3 class="font-display text-3xl mb-2">MUSE</h3>
+                <p class="text-[8px] tracking-[0.3em] uppercase opacity-50">By Anahita</p>
+            </div>
         </div>
     </section>
 
-    <!-- Bento Features Section -->
-    <section class="py-32 px-6">
+    <div class="section-divider"></div>
+
+    <!-- 03 Color Palette -->
+    <section id="colors" class="py-32 px-8 max-w-7xl mx-auto">
+        <div class="flex items-center gap-6 mb-20" data-aos="fade-right">
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">03</span>
+            <div class="h-px bg-current flex-1 opacity-10"></div>
+            <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">Color Palette</span>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="color-card" data-aos="fade-up">
+                <div class="h-64 w-full bg-[#810b38] mb-4"></div>
+                <p class="font-display text-xl">Crimson Rose</p>
+                <p class="hex-code font-mono text-xs opacity-40 uppercase mt-1">#810B38</p>
+            </div>
+            <div class="color-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-64 w-full bg-[#541a1a] mb-4"></div>
+                <p class="font-display text-xl">Deep Burgundy</p>
+                <p class="hex-code font-mono text-xs opacity-40 uppercase mt-1">#541A1A</p>
+            </div>
+            <div class="color-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-64 w-full bg-[#869b7e] mb-4"></div>
+                <p class="font-display text-xl">Sage</p>
+                <p class="hex-code font-mono text-xs opacity-40 uppercase mt-1">#869B7E</p>
+            </div>
+            <div class="color-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-64 w-full bg-[#ede8de] mb-4 border border-black/5"></div>
+                <p class="font-display text-xl">Parchment</p>
+                <p class="hex-code font-mono text-xs opacity-40 uppercase mt-1">#EDE8DE</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Typography -->
+    <section id="typography" class="py-32 bg-[#2a1010] text-[#f6f3eb] px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold tracking-tight mb-4 uppercase italic">Your crypto, <span class="text-blue-600">unlocked.</span></h2>
-                <p class="text-zinc-500">Every feature you need to bridge the gap between Web3 and reality.</p>
+            <div class="flex items-center gap-6 mb-20">
+                <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">04</span>
+                <div class="h-px bg-current flex-1 opacity-10"></div>
+                <span class="text-[11px] font-bold opacity-30 uppercase tracking-widest">Typography</span>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="feature-card p-10">
-                    <div class="w-12 h-12 bg-[#0066FF]/10 rounded-lg flex items-center justify-center mb-8">
-                        <svg class="text-[#0066FF]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tight">Vault Secure</h3>
-                    <p class="text-zinc-500 leading-relaxed text-sm">Self-custody assets mean you are always in control of your private keys and funds.</p>
+            <div class="grid md:grid-cols-2 gap-20">
+                <div data-aos="fade-up">
+                    <p class="text-[10px] tracking-widest uppercase mb-8 opacity-50">Headlines</p>
+                    <h4 class="font-display text-6xl md:text-8xl mb-4">Bodoni Moda</h4>
+                    <p class="font-display text-2xl italic opacity-70">The quick brown fox jumps over the lazy dog.</p>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="feature-card p-10">
-                    <div class="w-12 h-12 bg-[#0066FF]/10 rounded-lg flex items-center justify-center mb-8">
-                        <svg class="text-[#0066FF]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tight">Instant Conversion</h3>
-                    <p class="text-zinc-500 leading-relaxed text-sm">Convert at the exact moment of purchase with the best market rates available.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="feature-card p-10">
-                    <div class="w-12 h-12 bg-[#0066FF]/10 rounded-lg flex items-center justify-center mb-8">
-                        <svg class="text-[#0066FF]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tight">Global Spend</h3>
-                    <p class="text-zinc-500 leading-relaxed text-sm">Supported in 150+ countries and at millions of ATMs and merchant locations.</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-[10px] tracking-widest uppercase mb-8 opacity-50">Body & UI</p>
+                    <h4 class="text-4xl md:text-5xl font-medium mb-4">DM Sans</h4>
+                    <p class="text-xl opacity-50 leading-relaxed">Elegant hair and makeup services for the modern woman. Focus on natural beauty and unhurried craft.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-24 border-t border-zinc-900 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-            <div>
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="w-6 h-6 bg-[#0066FF] rounded flex items-center justify-center font-bold italic text-white text-[10px]">H</div>
-                    <span class="font-black uppercase tracking-tighter">Hedge</span>
-                </div>
-                <p class="text-zinc-600 text-sm max-w-xs leading-relaxed">The only card you need to live on crypto. Join the financial revolution today.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
-                <div>
-                    <h4 class="text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Product</h4>
-                    <div class="flex flex-col gap-3 text-sm text-zinc-500 uppercase font-medium">
-                        <a href="#" class="hover:text-blue-600">Card</a>
-                        <a href="#" class="hover:text-blue-600">Swap</a>
-                        <a href="#" class="hover:text-blue-600">Waitlist</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Legal</h4>
-                    <div class="flex flex-col gap-3 text-sm text-zinc-500 uppercase font-medium">
-                        <a href="#" class="hover:text-blue-600">Privacy</a>
-                        <a href="#" class="hover:text-blue-600">Terms</a>
-                        <a href="#" class="hover:text-blue-600">Cookies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-zinc-900 text-center text-[10px] font-bold text-zinc-700 uppercase tracking-widest">
-            © 2024 Hedge Finance — Multi-chain spend protocol.
-        </div>
+    <footer class="py-20 px-8 text-center opacity-40">
+        <p class="text-[10px] tracking-[0.5em] uppercase">Muse by Anahita © 2024</p>
     </footer>
 
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000
+        });
+    </script>
 </body>
 </html>
