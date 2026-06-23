@@ -1,141 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wing | The Multi-Chain Crypto Card</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; }
-        .blue-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: -1;
-        }
-        .card-shadow {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-</head>
-<body class="overflow-x-hidden">
+"use client";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Shield, Globe, Zap, ArrowRight, Check, Menu, X, CreditCard, Cpu, Wifi } from 'lucide-react';
 
-    <!-- Navigation (Header) -->
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl italic">W</div>
-                <span class="text-xl font-bold tracking-tighter">WING</span>
+export default function WingLandingPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-blue-500/30 font-sans">
+      {/* NAVIGATION */}
+      <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2 group cursor-pointer">
+            <div className="w-10 h-10 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+              <span className="font-bold text-xl italic">W</span>
             </div>
-            <div class="hidden md:flex gap-8 text-sm text-gray-400">
-                <a href="#" class="hover:text-white transition">How it works</a>
-                <a href="#" class="hover:text-white transition">Security</a>
-                <a href="#" class="hover:text-white transition">About us</a>
-            </div>
-            <button class="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-all">
-                Contact us
+            <span className="text-xl font-bold tracking-tighter">WING</span>
+          </div>
+
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+            <a href="#" className="hover:text-white transition-colors">Solutions</a>
+            <a href="#" className="hover:text-white transition-colors">Technology</a>
+            <a href="#" className="hover:text-white transition-colors">Security</a>
+            <a href="#" className="hover:text-white transition-colors">Pricing</a>
+          </div>
+
+          <div className="hidden md:flex items-center gap-4">
+            <button className="px-5 py-2 text-sm font-medium hover:text-blue-400 transition-colors">Log in</button>
+            <button className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-all duration-300">
+              Open Account
             </button>
-        </div>
-    </nav>
+          </div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-44 pb-20 px-6">
-        <div class="blue-glow top-0 left-1/2 -translate-x-1/2"></div>
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </nav>
+
+      {/* HERO SECTION */}
+      <section className="relative pt-44 pb-32 px-6 overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
         
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="text-blue-500 font-semibold tracking-widest text-xs uppercase mb-4 block">Now Available Globally</span>
-                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
-                    The ultimate <br> 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">multi-chain</span> <br> 
-                    crypto card.
-                </h1>
-                <p class="text-gray-400 text-lg mb-8 max-w-md">
-                    Spend your crypto anywhere, anytime. Connect your wallet and get your virtual or physical card in minutes.
-                </p>
-                <div class="flex gap-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all">
-                        Get started 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
-                </div>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              Next Gen Banking
             </div>
+            <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] mb-8 tracking-tight">
+              The card of <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-white">
+                the future.
+              </span>
+            </h1>
+            <p className="text-gray-400 text-xl mb-10 max-w-lg leading-relaxed">
+              Experience the world's most advanced multi-chain crypto card. Spend, save, and earn rewards in real-time.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-blue-600 hover:bg-blue-500 px-10 py-5 rounded-2xl font-bold text-lg transition-all flex items-center gap-3 shadow-[0_20px_40px_rgba(37,99,235,0.2)]">
+                Get Your Card <ArrowRight size={20} />
+              </button>
+            </div>
+          </motion.div>
 
-            <!-- Card Visual (The Elementor-like "Widget") -->
-            <div class="relative h-[400px] flex items-center justify-center">
-                <!-- Black Card -->
-                <div class="relative w-full max-w-[420px] aspect-[1.58/1] bg-gradient-to-br from-zinc-800 to-black rounded-[24px] p-8 border border-white/10 card-shadow transform rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
-                    <div class="flex justify-between items-start mb-12">
-                        <div class="w-12 h-10 bg-zinc-700/50 rounded-md border border-white/5 flex items-center justify-center">
-                            <div class="w-8 h-6 bg-yellow-600/20 rounded-sm"></div>
-                        </div>
-                        <div class="italic font-bold text-zinc-500">WING</div>
+          {/* THE CARD VISUAL */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, rotateY: 20 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative perspective-1000"
+          >
+            {/* Main Black Card */}
+            <div className="relative w-full max-w-[500px] aspect-[1.58/1] bg-gradient-to-br from-zinc-800 to-black rounded-[30px] p-8 border border-white/10 shadow-2xl overflow-hidden group">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.1),transparent)]" />
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="w-14 h-10 bg-zinc-700/50 rounded-lg flex items-center justify-center overflow-hidden">
+                    <Cpu className="text-zinc-500" size={32} />
+                  </div>
+                  <Wifi className="text-zinc-500 rotate-90" />
+                </div>
+                <div>
+                  <p className="font-mono text-2xl tracking-[0.2em] mb-4">4452 8821 0092 1102</p>
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <p className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Card Holder</p>
+                      <p className="font-medium tracking-wide">ALEXANDER WING</p>
                     </div>
-                    <div class="text-2xl font-mono tracking-[0.2em] mb-8">4452 8821 0092 1102</div>
-                    <div class="flex justify-between items-end">
-                        <div>
-                            <p class="text-[10px] text-zinc-500 uppercase tracking-widest">Card Holder</p>
-                            <p class="text-sm tracking-widest uppercase">Alexander Wing</p>
-                        </div>
-                        <div class="flex -space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-red-500 opacity-80"></div>
-                            <div class="w-8 h-8 rounded-full bg-orange-500 opacity-80"></div>
-                        </div>
+                    <div className="flex flex-col items-end">
+                       <div className="flex -space-x-4">
+                          <div className="w-10 h-10 rounded-full bg-red-500/80 blur-[2px]" />
+                          <div className="w-10 h-10 rounded-full bg-orange-500/80 blur-[2px]" />
+                       </div>
                     </div>
+                  </div>
                 </div>
-                <!-- Blue Card (Behind) -->
-                <div class="absolute w-full max-w-[420px] aspect-[1.58/1] bg-blue-600 rounded-[24px] p-8 border border-white/20 card-shadow transform -rotate-12 translate-x-10 translate-y-4 z-10 opacity-50"></div>
+              </div>
             </div>
+          </motion.div>
         </div>
-    </section>
+      </section>
 
-    <!-- Features Section (The Bento Grid) -->
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- Feature 1 -->
-            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
-                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Secure Vault</h3>
-                <p class="text-gray-400">Military grade encryption for your digital assets and transactions.</p>
+      {/* STATS SECTION */}
+      <section className="py-20 border-y border-white/5 bg-zinc-900/20">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12">
+          {[
+            { label: "Active Users", val: "200k+" },
+            { label: "Transactions", val: "$40M+" },
+            { label: "Countries", val: "150+" },
+            { label: "Supported Coins", val: "50+" },
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <div className="text-3xl font-bold mb-2">{stat.val}</div>
+              <div className="text-gray-500 text-sm">{stat.label}</div>
             </div>
-            <!-- Feature 2 -->
-            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
-                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Global Access</h3>
-                <p class="text-gray-400">Accepted at over 40 million merchants and ATMs worldwide.</p>
-            </div>
-            <!-- Feature 3 -->
-            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
-                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Instant Swaps</h3>
-                <p class="text-gray-400">Convert crypto to fiat instantly at the point of sale with zero delay.</p>
-            </div>
+          ))}
         </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/5 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2 opacity-50">
-                <div class="w-6 h-6 bg-white text-black rounded flex items-center justify-center font-bold text-xs italic">W</div>
-                <span class="text-sm font-bold tracking-tighter">WING</span>
-            </div>
-            <div class="flex gap-8 text-xs text-gray-500 uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition">Privacy</a>
-                <a href="#" class="hover:text-white transition">Terms</a>
-                <a href="#" class="hover:text-white transition">Twitter</a>
-            </div>
-            <div class="text-xs text-gray-600">© 2024 Wing Card Inc.</div>
+      {/* FEATURES GRID */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for the modern era.</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+              Everything you need to manage your digital finance in one sleek, secure application.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <FeatureCard 
+              icon={<Shield className="text-blue-500" />}
+              title="Bank-Grade Security"
+              desc="Your assets are protected by multi-sig technology and biometric verification."
+            />
+            <FeatureCard 
+              icon={<Zap className="text-blue-500" />}
+              title="Instant Settlement"
+              desc="No more waiting days. Your transactions clear in milliseconds globally."
+            />
+            <FeatureCard 
+              icon={<Globe className="text-blue-500" />}
+              title="Borderless Payments"
+              desc="Spend any currency at any merchant that accepts major credit cards."
+            />
+          </div>
         </div>
-    </footer>
+      </section>
 
-</body>
-</html>
+      {/* CTA SECTION */}
+      <section className="py-32 px-6">
+        <div className="max-w-5xl mx-auto bg-gradient-to-b from-blue-600 to-blue-800 rounded-[40px] p-12 md:p-20 text-center relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10">Ready to fly with Wing?</h2>
+          <p className="text-blue-100 text-xl mb-10 max-w-xl mx-auto relative z-10">
+            Join the whitelist today and be among the first to receive the Limited Edition Founder's Card.
+          </p>
+          <button className="bg-white text-blue-600 px-12 py-5 rounded-2xl font-bold text-xl hover:scale-105 transition-transform relative z-10">
+            Get Started Now
+          </button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold italic">W</div>
+            <span className="font-bold tracking-tighter">WING</span>
+          </div>
+          <div className="flex gap-10 text-sm text-gray-500 font-medium">
+            <a href="#" className="hover:text-white transition-colors">Twitter</a>
+            <a href="#" className="hover:text-white transition-colors">Discord</a>
+            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+          </div>
+          <p className="text-gray-600 text-sm">© 2024 Wing Finance Inc.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+  return (
+    <div className="p-10 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/50 transition-all group">
+      <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+        {icon}
+      </div>
+      <h3 className="text-2xl font-bold mb-4">{title}</h3>
+      <p className="text-gray-400 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
