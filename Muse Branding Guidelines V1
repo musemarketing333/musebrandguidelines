@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wing | The Multi-Chain Crypto Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; }
+        .blue-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+        }
+        .card-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation (Header) -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl italic">W</div>
+                <span class="text-xl font-bold tracking-tighter">WING</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm text-gray-400">
+                <a href="#" class="hover:text-white transition">How it works</a>
+                <a href="#" class="hover:text-white transition">Security</a>
+                <a href="#" class="hover:text-white transition">About us</a>
+            </div>
+            <button class="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-all">
+                Contact us
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-44 pb-20 px-6">
+        <div class="blue-glow top-0 left-1/2 -translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-blue-500 font-semibold tracking-widest text-xs uppercase mb-4 block">Now Available Globally</span>
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    The ultimate <br> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">multi-chain</span> <br> 
+                    crypto card.
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-md">
+                    Spend your crypto anywhere, anytime. Connect your wallet and get your virtual or physical card in minutes.
+                </p>
+                <div class="flex gap-4">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all">
+                        Get started 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Visual (The Elementor-like "Widget") -->
+            <div class="relative h-[400px] flex items-center justify-center">
+                <!-- Black Card -->
+                <div class="relative w-full max-w-[420px] aspect-[1.58/1] bg-gradient-to-br from-zinc-800 to-black rounded-[24px] p-8 border border-white/10 card-shadow transform rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
+                    <div class="flex justify-between items-start mb-12">
+                        <div class="w-12 h-10 bg-zinc-700/50 rounded-md border border-white/5 flex items-center justify-center">
+                            <div class="w-8 h-6 bg-yellow-600/20 rounded-sm"></div>
+                        </div>
+                        <div class="italic font-bold text-zinc-500">WING</div>
+                    </div>
+                    <div class="text-2xl font-mono tracking-[0.2em] mb-8">4452 8821 0092 1102</div>
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <p class="text-[10px] text-zinc-500 uppercase tracking-widest">Card Holder</p>
+                            <p class="text-sm tracking-widest uppercase">Alexander Wing</p>
+                        </div>
+                        <div class="flex -space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-red-500 opacity-80"></div>
+                            <div class="w-8 h-8 rounded-full bg-orange-500 opacity-80"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blue Card (Behind) -->
+                <div class="absolute w-full max-w-[420px] aspect-[1.58/1] bg-blue-600 rounded-[24px] p-8 border border-white/20 card-shadow transform -rotate-12 translate-x-10 translate-y-4 z-10 opacity-50"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (The Bento Grid) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
+                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Secure Vault</h3>
+                <p class="text-gray-400">Military grade encryption for your digital assets and transactions.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
+                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Global Access</h3>
+                <p class="text-gray-400">Accepted at over 40 million merchants and ATMs worldwide.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="p-8 rounded-[32px] bg-zinc-900/50 border border-white/5 hover:border-blue-500/30 transition">
+                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Instant Swaps</h3>
+                <p class="text-gray-400">Convert crypto to fiat instantly at the point of sale with zero delay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50">
+                <div class="w-6 h-6 bg-white text-black rounded flex items-center justify-center font-bold text-xs italic">W</div>
+                <span class="text-sm font-bold tracking-tighter">WING</span>
+            </div>
+            <div class="flex gap-8 text-xs text-gray-500 uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition">Privacy</a>
+                <a href="#" class="hover:text-white transition">Terms</a>
+                <a href="#" class="hover:text-white transition">Twitter</a>
+            </div>
+            <div class="text-xs text-gray-600">© 2024 Wing Card Inc.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
